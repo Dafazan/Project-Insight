@@ -213,9 +213,20 @@ export default function Home() {
             </div>
           </div >
 
-          <div className='w-full h-full absolute flex items-center'>
+          <div className='w-full h-full flex py-[98px] px-36 absolute '>
+            <div className="shadow-inner w-full overflow-y-scroll">
+              {/* Content */}
+
+
+
+
+            </div>
+          </div>
+
+
+          <div className='w-full h-full absolute flex items-center pointer-events-none'>
             <div className='w-full h-[420px] flex justify-between'>
-              <div className='w-[96px] h-full flex flex-col justify-between'>
+              <div className='w-[96px] h-full flex flex-col justify-between pointer-events-auto'>
                 <div className='h-32 ps-1 flex flex-col justify-between text-xs'>
                   <div className='flex'>
                     <button className=' w-56 py-1 border border-t-0 border-yellow-300 hover:bg-[#002c41]'>Button</button>
@@ -245,7 +256,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className='w-[96px] h-full flex flex-col justify-between'>
+              <div className='w-full '></div>
+
+              <div className='w-[96px] h-full flex flex-col justify-between pointer-events-auto'>
                 <div className='h-36 pe-1 flex flex-col justify-between text-xs'>
                   <div className='flex'>
                     <div className=' w-full border-t border-yellow-300'></div>
@@ -278,7 +291,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className=' w-full h-16 flex items-center justify-center text-xs absolute'>
+          <div className=' w-full h-16 flex items-center justify-center text-xs absolute z-50'>
             <div className='w-full h-[2px] bg-blue-500'>
 
             </div>
@@ -315,50 +328,6 @@ export default function Home() {
 
           </div> */}
 
-
-          <div className='w-full h-full flex py-[98px] px-36 absolute'>
-            <div className="shadow-inner w-full overflow-y-scroll">
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>liasdst</div>
-              <div>lisasdt</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-
-
-              <div>list</div>
-              <div>lisasdt</div>
-              <div>list</div>
-              <div>list</div>
-              <div>lisasdt</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>liasdst</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-              <div>list</div>
-
-            </div>
-          </div>
 
         </div>
 

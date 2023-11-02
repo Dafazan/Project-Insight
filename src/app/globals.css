@@ -16,6 +16,15 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 0.1em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 21, 128);
+}
+
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(0, 21, 128);
