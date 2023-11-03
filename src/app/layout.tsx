@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <>
 
-          <div className='relative h-screen w-screen  '>
+          <div className='relative h-screen w-screen'>
             <div className="h-full">
               <Basecolored />
 
