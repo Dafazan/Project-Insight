@@ -19,20 +19,13 @@ function LoginPage() {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // console.log(userCredential.user);
-        // alert("Login Berhasil");
-        //push("/");
         setIsLoginSuceed(true);
       })
       .catch((error) => {
-        // const errorCode = error.code;
-        // const errorMessage = error.message;
-        // alert(errorMessage);
         setIsLoginFailed(true);
       });
     e.preventDefault();
 
-    // push("/menu");
   };
   const handleRetryLog = () => {
     setIsLoginFailed(false);
@@ -89,10 +82,10 @@ function LoginPage() {
             <p className='text-5xl font-semibold text-green-500 '>ACCESS GRANTED</p>
             <p className='mt-4'>Whre do you want to proceed?</p>
             <div className='flex gap-5'>
-              <a href="">
+              <a href="/">
                 <button className='bg-blue-500 px-5 py-1'>DATA CONTROL</button>
               </a>
-              <a href="">
+              <a href="/">
                 <button className='bg-blue-500 px-5 py-1'>ACCESS CONTROL</button>
               </a>
             </div>
