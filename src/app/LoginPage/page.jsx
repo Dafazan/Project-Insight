@@ -31,9 +31,9 @@ function LoginPage() {
     setIsLoginFailed(false);
   };
   return (
-    <div className='w-full h-full flex justify-center items-center text-center relative'>
+    <div className='w-full md:h-full h-[90vh] flex justify-center items-center text-center relative'>
       <form onSubmit={onSubmit} action="" method='POST'>
-        <div className="py-5 w-96">
+        <div className="md:py-5 bgblur md:bg-transparent md:px-0 p-5 md:w-96 w-full">
           <h1 className='text-red-500 text-2xl font-semibold'>ENTER YOUR CREDENTIALS TO GAIN ACCESS</h1>
 
           <div className='py-3'>
