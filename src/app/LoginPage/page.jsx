@@ -1,12 +1,15 @@
 'use client'
 import React from 'react'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import MobileLayout from "@/components/Layouts/mobile"
+import DesktopLayout from "@/components/Layouts/desktop"
+import { isMobile } from 'react-device-detect';
 
 
-function LoginPage() {
+function LoginForm() {
   const { push } = useRouter();
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -94,6 +97,33 @@ function LoginPage() {
       ) : null}
 
     </div>
+  )
+
+}
+function LoginPage() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+
+  return (
+    <>
+      {isClient && (
+        <>
+          {isMobile ? (
+            <MobileLayout>
+              <LoginForm />
+            </MobileLayout>
+          ) : (
+            <DesktopLayout>
+              <LoginForm />
+            </DesktopLayout>
+          )}
+        </>
+      )}
+    </>
   )
 }
 
