@@ -62,6 +62,7 @@ function LoginForm() {
                 className="text-blue-300 text-center border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1"
                 placeholder="Enter Your Email"
                 onChange={(e) => setEmail(e.target.value)}
+                autocomplete="off"
               />
             </div>
 
