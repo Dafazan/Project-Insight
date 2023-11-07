@@ -47,14 +47,26 @@ function LoginForm() {
   }, []);
 
   return (
+
     <>
 
-      <div className='w-full md:h-full h-[90vh] flex justify-center items-center text-center'>
-        <form className='w-full relative' onSubmit={onSubmit} action="" method='POST'>
-          <div className=" bgblurblue border-2 border-blue-800 p-1 md:w-[400px] w-full flex flex-col">
-            <div className=' w-full h-5 flex justify-between'>
-              <div className='w-5 h-full  border-s-2 border-t-2 border-blue-500'></div>
-              <div className='w-5 h-full  border-e-2 border-t-2 border-blue-500'></div>
+    <div className='w-full md:h-full h-[90vh] flex justify-center items-center text-center relative'>
+      <form onSubmit={onSubmit} action="" method='POST'>
+        <div className="md:py-5 bgblur md:bg-transparent md:px-0 p-5 md:w-96 w-full">
+          <h1 className='text-red-500 text-2xl font-semibold'>ENTER YOUR CREDENTIALS TO GAIN ACCESS</h1>
+
+          <div className='py-3'>
+            <div className='py-4 '>
+
+              <input
+                id="email"
+                name="email"
+                type="text"
+                className="text-blue-300 text-center border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1"
+                placeholder="Enter Your Email"
+                onChange={(e) => setEmail(e.target.value)}
+                autocomplete="off"
+              />
             </div>
             <div className='px-5  '>
               <h1 className='text-red-500 text-2xl font-semibold'>ENTER YOUR CREDENTIALS TO GAIN ACCESS</h1>
