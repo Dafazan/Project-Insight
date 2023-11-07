@@ -86,6 +86,12 @@ function Basecolored() {
                     </div>
                 </div>
             </div >
+            <div className="w-full h-full p-24 absolute">
+                <div className='w-full h-full flex justify-center p-24 items-center'>
+
+                    <img className='opacity-40' src="bgicon.png" alt="" />
+                </div>
+            </div>
         </>
     )
 }
