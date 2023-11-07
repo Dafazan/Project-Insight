@@ -10,7 +10,7 @@ import CardsCanvas from "@/components/Layouts/CardsCanvas"
 function DataCenterContent() {
     return (
         <>
-            <CardsCanvas cols={'4'}>
+            <CardsCanvas cols={4}>
                 <TitleStatusCard status={'private'} />
                 <TitleStatusCard status={'public'} />
                 <TitleStatusCard status={'private'} />
