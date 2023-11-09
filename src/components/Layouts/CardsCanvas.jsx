@@ -20,7 +20,7 @@ function classNames(cols) {
 function CardsCanvas({ children, cols }) {
     return (
         <>
-            <div className={`grid grid-cols-1 ${classNames(cols)} gap-5 w-full py-5 md:px-2 px-5`}>
+            <div className={`grid grid-cols-1 ${classNames(cols)} gap-5 w-full py-5 md:px-2 px-5 h-full overflow-y-scroll`}>
                 {children}
             </div>
         </>
