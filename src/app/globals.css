@@ -67,6 +67,19 @@ body {
   ;
 }
 
+.noteworthy {
+  color: rgb(21, 250, 0);
+}
+
+.priority {
+  color: rgb(250, 246, 0);
+}
+
+.mandatory {
+  color: rgb(220 38 38);
+}
+
+
 @keyframes blink {
   0% {
     color: rgb(220 38 38);

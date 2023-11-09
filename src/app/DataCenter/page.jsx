@@ -21,6 +21,9 @@ function DataCenter() {
                     link="/DataCenter/Archives"
                     title='Archives' />
                 <TitleOnlyCard
+                    link="/DataCenter/Tasks"
+                    title='Tasks' />
+                <TitleOnlyCard
                     link="/DataCenter/Letters"
                     title='Letters' />
                 <TitleOnlyCard
