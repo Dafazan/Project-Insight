@@ -2,7 +2,7 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 
-function TitleStatusCard({ link, status, title, incre, ...props }) {
+function TitleImportanceCard({ link, title, importance, ...props }) {
 
     return (
         <>
@@ -26,10 +26,10 @@ function TitleStatusCard({ link, status, title, incre, ...props }) {
                                         opacity: 1,
 
 
-                                        transition: { delay: incre * 0.8 }
+                                        transition: { delay: 1 }
                                     }}
 
-                                    className={status}>{status}</motion.p>
+                                    className={importance}>{importance}</motion.p>
                             </div>
 
 
@@ -45,4 +45,4 @@ function TitleStatusCard({ link, status, title, incre, ...props }) {
     )
 }
 
-export default TitleStatusCard
+export default TitleImportanceCard

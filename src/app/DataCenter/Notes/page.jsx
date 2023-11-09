@@ -56,16 +56,20 @@ function Notes() {
 
                     <TitleStatusCard
                         key={data.id}
-                        initial={{ opacity: 0, height: 50, scale: 0, }}
+                        initial={{ opacity: 0, height: 30, scale: 0, }}
                         animate={{
                             opacity: 1,
                             height: 160,
                             scale: 1,
-                            transition: { delay: i * 0.2 }
+                            transition: {
+                                height: { duration: 0.1 }, delay: i * 0.2
+                            }
                         }}
                         link={`/DataCenter/Notes/Note?id=${data.id}`}
                         title={data.title}
                         status={data.status}
+                        incre={i}
+
                     />
                 </>
 
