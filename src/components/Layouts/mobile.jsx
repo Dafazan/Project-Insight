@@ -1,12 +1,11 @@
 import React from 'react'
+import SideNavData from '@/components/Layouts/SideNavData'
 
-function MobileLayout({ children }) {
+function MobileLayout({ children, isNotes, isLetters, isArchive, isTasks }) {
     return (
         <div className='p-1 flex justify-center items-center h-screen w-screen'>
-            <div className='border-2 border-blue-500 p-4 w-full h-full '>
 
-                {children}
-            </div>
+            {children}
 
         </div>
     )

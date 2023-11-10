@@ -17,8 +17,9 @@ import { db, storage, firebaseAnalytics } from "../../../../firebase";
 import { useEffect, useState } from "react";
 import NoteMobile from '@/components/Layouts/NoteMobile'
 import AppName from '@/components/Layouts/AppName'
+import MobileInnerLayout from '@/components/Layouts/MobileInnerLayout'
 
-function Note() {
+function Page() {
     const searchParams = useSearchParams();
     const id = searchParams.get("id");
     const [dataNotes, setDataNotes] = useState([]);
@@ -39,50 +40,74 @@ function Note() {
             alert(error);
         }
     }
+    return (
+        <>
+            {
+                dataNotes.map((data, i) => {
+
+                    return (
+                        <>
+
+                            <div className='w-full h-full flex flex-col'>
+                                <div className='w-full bgblurblue'>
+                                    <div className='w-full h-2 '>
+                                        <div className='w-full flex gap-1 '>
+                                            <div className='w-full h-2 border-t-2 border-blue-500'></div>
+                                        </div>
+
+                                    </div>
+                                    <div className=' p-3  uppercase'>
+                                        <div className='line-clamp-1'>
+                                            <p className='text-3xl'>{data.title}</p>
+                                        </div>
+                                        <div className='line-clamp-1'>
+                                            <p className={`${data.status} font-medium`}>{data.status}</p>
+                                        </div>
+
+                                    </div>
+                                    <div className='w-full h-2'>
+                                        <div className='w-full flex gap-1 rotate-180'>
+                                            <div className='w-full h-2 border-t-2 border-blue-500'></div>
+                                        </div>
+                                        <div className='w-full flex justify-between absolute'>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className=' w-full h-[80%] border-b-2 border-blue-500 p-3 overflow-y-scroll'>
+                                    {data.content}
+
+                                </div>
+                                <div className='flex justify-between uppercase'>
+                                    <AppName />
+                                    <div className=' bg-red-500 px-2 font-semibold'>
+                                        <a href="/DataCenter/Notes">Dismiss</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
+                    )
+                })
+            }
+
+        </>
+
+    )
+}
+
+function Note() {
+
 
 
     return (
         <>
-            {dataNotes.map((data, i) => {
 
-                return (
-                    <>
+            <MobileInnerLayout isNotes={true}>
+                <Page />
+            </MobileInnerLayout>
 
-                        <div className='w-full h-full flex flex-col'>
-                            <div className='w-full bgblurblue'>
-                                <div className='w-full h-2 '>
-                                    <div className='w-full flex gap-1 '>
-                                        <div className='w-full h-2 border-t-2 border-blue-500'></div>
-                                    </div>
 
-                                </div>
-                                <div className=' p-3  uppercase'>
-                                    <div className='line-clamp-1'>
-                                        <p className='text-3xl'>{data.title}</p>
-                                    </div>
-                                    <div className='line-clamp-1'>
-                                        <p className={`${data.status} font-medium`}>{data.status}</p>
-                                    </div>
 
-                                </div>
-                                <div className='w-full h-2'>
-                                    <div className='w-full flex gap-1 rotate-180'>
-                                        <div className='w-full h-2 border-t-2 border-blue-500'></div>
-                                    </div>
-                                    <div className='w-full flex justify-between absolute'>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div className=' w-full h-[80%] border-b-2 border-blue-500 p-3 overflow-y-scroll'>
-                                {data.content}
-                            </div>
-                            <AppName />
-                        </div>
-
-                    </>
-                )
-            })}
         </>
     )
 }

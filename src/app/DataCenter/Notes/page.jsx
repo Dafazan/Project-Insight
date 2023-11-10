@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import TitleStatusCard from "@/components/cards/TitleStatusCard"
-import TitleOnlyCard from "@/components/cards/TitleOnlyCard"
 import CardsCanvas from "@/components/Layouts/CardsCanvas"
 import {
     collection,
@@ -12,10 +11,14 @@ import {
     where,
     Firestore,
 } from "firebase/firestore";
-import { db, storage, firebaseAnalytics } from "../../../firebase";
+import { db, storage, firebaseAnalytics, auth } from "../../../firebase";
 import { useEffect, useState } from "react";
+import MobileInnerLayout from '@/components/Layouts/MobileInnerLayout'
+import { useRouter } from "next/navigation";
+import { onAuthStateChanged } from "firebase/auth";
+import { isMobile } from 'react-device-detect'
 
-function Notes() {
+function Page() {
     const [dataNotes, setDataNotes] = useState([]);
     const [dataNotesResult, setDataNotesResult] = useState([]);
     const [search, setSearch] = useState("");
@@ -48,34 +51,88 @@ function Notes() {
         }
     }
     return (
-        <CardsCanvas
-            cols={5}
-        >
-            {dataNotes.map((data, i) => (
+        <>
+            <CardsCanvas
+                cols={5}
+            >
+                {dataNotes.map((data, i) => (
+                    <>
+
+                        <TitleStatusCard
+                            key={data.id}
+                            initial={{ opacity: 0, height: 30, scale: 0, }}
+                            animate={{
+                                opacity: 1,
+                                height: 160,
+                                scale: 1,
+                                transition: {
+                                    height: { duration: 0.1 }, delay: i * 0.2
+                                }
+                            }}
+                            link={`/DataCenter/Notes/Note?id=${data.id}`}
+                            title={data.title}
+                            status={data.status}
+                            incre={i}
+
+                        />
+                    </>
+
+
+                ))}
+            </CardsCanvas>
+        </>
+    )
+}
+
+function Notes() {
+    const [isLoginSuceed, setIsLoginSuceed] = useState(false);
+    const { push } = useRouter();
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/auth.user
+                const uid = user.uid;
+                setIsLoginSuceed(true);
+
+                // ...
+            } else {
+                push("/LoginPage");
+                // User is signed out
+                // ...
+            }
+        });
+    }, []);
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    return (
+        <>
+            {isLoginSuceed ? (
                 <>
-
-                    <TitleStatusCard
-                        key={data.id}
-                        initial={{ opacity: 0, height: 30, scale: 0, }}
-                        animate={{
-                            opacity: 1,
-                            height: 160,
-                            scale: 1,
-                            transition: {
-                                height: { duration: 0.1 }, delay: i * 0.2
-                            }
-                        }}
-                        link={`/DataCenter/Notes/Note?id=${data.id}`}
-                        title={data.title}
-                        status={data.status}
-                        incre={i}
-
-                    />
+                    {isClient && (
+                        <>
+                            {isMobile ? (
+                                <MobileInnerLayout isNotes={true}>
+                                    <Page />
+                                </MobileInnerLayout>
+                            ) : (
+                                <Page />
+                            )}
+                        </>
+                    )}
                 </>
+            ) : null}
 
 
-            ))}
-        </CardsCanvas>
+
+
+
+
+        </>
     )
 }
 
