@@ -17,6 +17,7 @@ import MobileInnerLayout from '@/components/Layouts/MobileInnerLayout'
 import { useRouter } from "next/navigation";
 import { onAuthStateChanged } from "firebase/auth";
 import { isMobile } from 'react-device-detect'
+import AppName from '@/components/Layouts/AppName'
 
 function Page() {
     const [dataNotes, setDataNotes] = useState([]);
@@ -90,16 +91,12 @@ function Notes() {
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/auth.user
                 const uid = user.uid;
                 setIsLoginSuceed(true);
 
                 // ...
             } else {
                 push("/LoginPage");
-                // User is signed out
-                // ...
             }
         });
     }, []);
@@ -116,7 +113,7 @@ function Notes() {
                     {isClient && (
                         <>
                             {isMobile ? (
-                                <MobileInnerLayout isNotes={true}>
+                                <MobileInnerLayout isNotes={true} isLists={true} backlink={'#'}>
                                     <Page />
                                 </MobileInnerLayout>
                             ) : (

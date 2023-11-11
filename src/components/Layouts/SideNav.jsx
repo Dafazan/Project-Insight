@@ -10,9 +10,9 @@ function SideNav({ children }) {
 
                 </div>
                 <div className=' h-full w-full uppercase text-blue-400 flex justify-between items-center gap-5'>
-                    <a className='text-white bg-blue-500 px-3 py-[1px] -translate-y-1' href="">Data</a>
+                    <a className='text-white bg-blue-500 px-3 py-[1px] -translate-y-1' href="/DataCenter">Data</a>
 
-                    <a className='text-blue-500' href="">Access</a>
+                    <a className='text-blue-500' href="/AccessCenter">Access</a>
 
 
                     {children}

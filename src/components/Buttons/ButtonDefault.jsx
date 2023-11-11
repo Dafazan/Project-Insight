@@ -5,7 +5,7 @@ function ButtonDefault({ text, action }) {
         <div className='py-3 w-full h-full'>
             <button
                 onClick={action}
-                className='w-60 h-full hover:scale-105 duration-1000'>
+                className='w-60 h-full md:hover:scale-105 duration-1000'>
                 <div className='  w-full h-10 relative'>
                     <div className='  w-full h-10 flex flex-col absolute'>
                         <div className='flex w-full h-full'>

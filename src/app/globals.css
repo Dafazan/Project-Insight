@@ -35,12 +35,31 @@ body {
   background-color: #002c41;
 }
 
+.radiobutton {
+  appearance: "none";
+  border: "2px solid black";
+  border-radius: "5px";
+  padding: "8px 16px";
+  cursor: "pointer";
+  outline: "none";
+  transition: "border 0.3s";
+}
+
 .bgblur {
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   display: inline-block;
   overflow: hidden;
+}
+
+.blurwindow {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-color: rgb(59 130 246);
 }
 
 .bgblurblue {

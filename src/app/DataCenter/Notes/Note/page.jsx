@@ -13,11 +13,14 @@ import {
     doc,
     Firestore,
 } from "firebase/firestore";
-import { db, storage, firebaseAnalytics } from "../../../../firebase";
+import { db, storage, firebaseAnalytics, auth } from "../../../../firebase";
 import { useEffect, useState } from "react";
+import MobileInnerLayout from '@/components/Layouts/MobileInnerLayout'
+import { useRouter } from "next/navigation";
+import { onAuthStateChanged } from "firebase/auth";
+import { isMobile } from 'react-device-detect'
 import NoteMobile from '@/components/Layouts/NoteMobile'
 import AppName from '@/components/Layouts/AppName'
-import MobileInnerLayout from '@/components/Layouts/MobileInnerLayout'
 
 function Page() {
     const searchParams = useSearchParams();
@@ -96,18 +99,42 @@ function Page() {
 }
 
 function Note() {
+    const [isLoginSuceed, setIsLoginSuceed] = useState(false);
+    const { push } = useRouter();
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const uid = user.uid;
+                setIsLoginSuceed(true);
+            } else {
+                push("/LoginPage");
+            }
+        });
+    }, []);
+    const [isClient, setIsClient] = useState(false);
 
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
 
     return (
         <>
-
-            <MobileInnerLayout isNotes={true}>
-                <Page />
-            </MobileInnerLayout>
-
-
-
+            {isLoginSuceed ? (
+                <>
+                    {isClient && (
+                        <>
+                            {isMobile ? (
+                                <MobileInnerLayout isNotes={true} backlink={'/DataCenter/Notes'}>
+                                    <Page />
+                                </MobileInnerLayout>
+                            ) : (
+                                <Page />
+                            )}
+                        </>
+                    )}
+                </>
+            ) : null}
         </>
     )
 }
