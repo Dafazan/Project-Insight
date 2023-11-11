@@ -113,7 +113,7 @@ function Notes() {
                     {isClient && (
                         <>
                             {isMobile ? (
-                                <MobileInnerLayout isNotes={true} isLists={true} backlink={'#'}>
+                                <MobileInnerLayout isNotes={true} isLists={true} backlink={'#'} entrylink={'/DataCenter/Notes/NoteEntry'}>
                                     <Page />
                                 </MobileInnerLayout>
                             ) : (

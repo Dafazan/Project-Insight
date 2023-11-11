@@ -1,5 +1,6 @@
 import React from 'react'
 import Basecolored from '@/components/Basecolored'
+import BasecoloredSecond from '@/components/BasecoloredSecond'
 import Topnav from '@/components/Topnav'
 import Fullscreenrec from '@/components/Fullscreenrec'
 
@@ -9,9 +10,9 @@ function DesktopLayout({ children }) {
 
             <div className='relative h-screen w-screen'>
                 <div className="h-full">
-                    <Basecolored />
+                    <BasecoloredSecond />
 
-                    <div className='w-full h-full flex py-[98px] px-36 absolute '>
+                    <div className='w-full h-full flex py-[60px] px-36 absolute '>
                         <div className="w-full h-full overflow-y-scroll">
                             {/* Content */}
 

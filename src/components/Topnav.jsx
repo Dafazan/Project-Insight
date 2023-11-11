@@ -7,19 +7,19 @@ function Topnav() {
                 <div className='w-full h-[2px] bg-blue-500'>
 
                 </div>
-                <div className=' h-full w-full text-blue-400 flex justify-between items-center gap-2'>
+                <div className=' h-full w-full text-blue-400 flex justify-between items-center gap-2 uppercase'>
                     <div className='w-[2px] h-[15px] bg-blue-500'></div>
-                    <a className='hover:text-yellow-300' href="">Homepage</a>
+                    <a className='hover:text-yellow-300' href="">Data</a>
                     <div className='w-[1px] h-[15px] bg-blue-500'></div>
-                    <a className='hover:text-yellow-300' href="">About</a>
+                    <a className='hover:text-yellow-300' href="">Access</a>
                     <div className='w-[1px] h-[15px] bg-blue-500'></div>
-                    <a className='hover:text-yellow-300' href="">Portofolios</a>
+                    <a className='hover:text-yellow-300' href="">Tools</a>
                     <div className='w-[1px] h-[15px] bg-blue-500'></div>
-                    <a className='hover:text-yellow-300' href="">Repositories</a>
+                    <a className='hover:text-yellow-300' href="">Repo</a>
                     <div className='w-[1px] h-[15px] bg-blue-500'></div>
-                    <a className='hover:text-yellow-300' href="">Social</a>
+                    <a className='hover:text-yellow-300' href="">Information</a>
                     <div className='w-[1px] h-[15px] bg-blue-500'></div>
-                    <a className='hover:text-yellow-300' href="">Contact</a>
+                    <a className='hover:text-yellow-300' href="">Notes</a>
                     <div className='w-[2px] h-[15px] bg-blue-500'></div>
                 </div>
                 <div className='w-full h-[2px] bg-blue-500'></div>

@@ -3,7 +3,7 @@ import React from 'react'
 function Basecolored() {
     return (
         <>
-            <div className="w-full h-full p-24 absolute">
+            <div className="w-full h-full px-24 pb-10 pt-14 absolute">
                 <div className=' h-full flex mx-24'>
                     <div className='base1 h-full w-full border-y-2 border-blue-500'></div>
                     <div className='base1 h-full w-full flex flex-col justify-between'>
@@ -23,7 +23,7 @@ function Basecolored() {
 
             </div >
 
-            <div className="w-full h-full p-24 absolute">
+            <div className="w-full h-full px-24 pb-10 pt-14 absolute">
                 <div className='h-full w-full flex flex-col'>
                     <div className=' w-full max-h-[40px] min-h-[40px] '></div>
                     <div className='base1 w-full h-[100%] border-x-2 border-blue-500'></div>
@@ -31,7 +31,7 @@ function Basecolored() {
                 </div>
             </div>
 
-            <div className="w-full h-full p-24 absolute">
+            <div className="w-full h-full px-24 pb-10 pt-14 absolute">
                 <div className=' h-full flex mx-24'>
                     <div className='h-full w-full'></div>
                     <div className='base1 h-full w-full flex flex-col justify-between'>
@@ -60,7 +60,7 @@ function Basecolored() {
 
             </div>
 
-            <div className="w-full h-full p-24 absolute">
+            <div className="w-full h-full px-24 pb-10 pt-14 absolute">
                 <div className='w-full h-full flex flex-col justify-between '>
                     <div className='flex'>
                         <div className='flex '>
@@ -86,8 +86,8 @@ function Basecolored() {
                     </div>
                 </div>
             </div >
-            <div className="w-full h-full p-24 absolute">
-                <div className='w-full h-full flex justify-center p-24 items-center'>
+            <div className="w-full h-full px-24 pb-10 pt-14 absolute">
+                <div className='w-full h-full flex justify-center px-24 pb-10 pt-14 items-center'>
 
                     <img className='opacity-40' src="bgicon.png" alt="" />
                 </div>

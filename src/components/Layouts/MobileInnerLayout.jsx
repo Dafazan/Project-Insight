@@ -2,7 +2,7 @@ import React from 'react'
 import SideNavData from '@/components/Layouts/SideNavData'
 import SideNav from './SideNav'
 
-function MobileInnerLayout({ children, isNotes, isLetters, isArchives, isTasks, isEntry, isLists, backlink }) {
+function MobileInnerLayout({ children, isNotes, isLetters, isArchives, isTasks, isEntry, isLists, backlink, entrylink }) {
     return (
         <>
             <SideNav>
@@ -14,7 +14,7 @@ function MobileInnerLayout({ children, isNotes, isLetters, isArchives, isTasks, 
                 <a className={`text-${isTasks ? ' text-white bg-blue-500 px-3 py-[1px] -translate-y-1' : 'text-blue-500'}`} href="/DataCenter/Tasks">Tasks</a>
                 <div ></div>
                 <div ></div>
-                <a className={`text-${isEntry ? ' text-white bg-blue-500 px-3 py-[1px] -translate-y-1' : 'text-blue-500'}`} href="/DataCenter/Notes/NoteEntry">Entry</a>
+                <a className={`text-${isEntry ? ' text-white bg-blue-500 px-3 py-[1px] -translate-y-1' : 'text-blue-500'}`} href={entrylink}>Entry</a>
                 <a className={`text-${isLists ? ' text-white bg-blue-500 px-3 py-[1px] -translate-y-1' : 'text-blue-500'}`} href={backlink}>Lists</a>
             </SideNav>
             <div className='border-2 border-blue-500 p-3 w-full h-full '>

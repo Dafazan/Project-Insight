@@ -1,9 +1,13 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
-function TitleOnlyCard({ link, title }) {
+function TitleOnlyCard({ link, title, ...props }) {
     return (
         <>
-            <button className='h-44 bgblurblue border-2 border-blue-800 p-3 pb-4 hover:scale-105 duration-1000'>
+            <motion.button
+
+                {...props}
+                className='h-44 bgblurblue border-2 border-blue-800 p-3 pb-4 hover:scale-105 duration-1000'>
                 <a className='w-full h-full' href={link}>
                     <div className='w-full h-full flex flex-col items-center justify-center'>
                         <div className='flex w-full h-8'>
@@ -24,7 +28,7 @@ function TitleOnlyCard({ link, title }) {
                         </div>
                     </div>
                 </a>
-            </button>
+            </motion.button>
         </>
     )
 }
