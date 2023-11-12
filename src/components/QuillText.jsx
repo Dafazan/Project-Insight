@@ -47,8 +47,8 @@ function QuillText({ ...props }) {
             modules={modules}
             format={formats}
             theme="snow"
-            maxLength={1000}
-            className="w-full"
+
+            className="w-full h-64 md:pb-10 pb-24"
         />
     );
 }

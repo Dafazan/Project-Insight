@@ -158,3 +158,65 @@ body {
 .alert-anim {
   animation: alert 0.5s;
 }
+
+
+button .ql-stroke,
+.ql-picker-label .ql-stroke {
+  fill: none;
+  stroke: rgb(59, 130, 246) !important;
+}
+
+button:hover .ql-stroke,
+.ql-picker-label:hover .ql-stroke {
+  fill: none;
+  stroke: rgb(21, 250, 0) !important;
+}
+
+.ql-active .ql-stroke {
+  fill: none;
+  stroke: rgb(21, 250, 0) !important;
+}
+
+button:hover .ql-fill,
+.ql-picker-label:hover .ql-fill {
+  fill: rgb(21, 250, 0) !important;
+  stroke: none;
+}
+
+button .ql-fill,
+.ql-picker-label .ql-fill {
+  fill: rgb(59, 130, 246) !important;
+  stroke: none;
+}
+
+.ql-active .ql-fill {
+  fill: rgb(21, 250, 0) !important;
+  stroke: none;
+}
+
+.ql-toolbar.ql-snow {
+  font-family: inherit;
+
+  border: none;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.ql-container {
+  color: rgb(22, 163, 74);
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.ql-container.ql-snow {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+
+}
+
+.ql-editor {
+  overflow-y: visible;
+  padding-top: 64px;
+}

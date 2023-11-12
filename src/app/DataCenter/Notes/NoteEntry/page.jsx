@@ -37,6 +37,10 @@ function Page() {
     { title: "", content: "", status: "" },
   ]);
 
+  const handleChange = (value) => {
+    setContent(value);
+  };
+
 
   const addData = async (e) => {
     e.preventDefault();
@@ -110,19 +114,21 @@ function Page() {
 
             </div>
           </div>
-          <div className='blurwindow p-3'>
+          <div className='blurwindow p-3 h-full'>
             <p>Note Content</p>
-            {/* <QuillText
-            
-            /> */}
-            <input
+            <QuillText
+              value={content}
+              onChange={handleChange}
+              className='h-52'
+            />
+            {/* <input
               onChange={(e) => setContent(e.target.value)}
               type="text"
               required
               placeholder="Insert Content"
               color=" bg-transparent"
               className='text-green-500 border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1'
-            />
+            /> */}
           </div>
           <ButtonDefault
             text={'SUBMIT'}
