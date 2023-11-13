@@ -21,6 +21,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { isMobile } from 'react-device-detect'
 import NoteMobile from '@/components/Layouts/NoteMobile'
 import AppName from '@/components/Layouts/AppName'
+import parser from "html-react-parser";
+import "react-quill/dist/quill.snow.css";
 
 function Page() {
     const searchParams = useSearchParams();
@@ -77,8 +79,12 @@ function Page() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className=' w-full h-[80%] border-b-2 border-blue-500 p-3 overflow-y-scroll'>
-                                    {data.content}
+                                <div className=' w-full h-[80%] border-b-2 border-blue-500 p-3 overflow-y-scroll  '>
+                                    <div className='ql-editor'>
+                                        {parser(
+                                            data.content
+                                        )}
+                                    </div>
 
                                 </div>
                                 <div className='flex justify-between uppercase'>

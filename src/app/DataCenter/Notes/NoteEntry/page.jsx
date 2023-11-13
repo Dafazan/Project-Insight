@@ -114,7 +114,7 @@ function Page() {
 
             </div>
           </div>
-          <div className='blurwindow p-3 h-full'>
+          <div className='blurwindow p-3 '>
             <p>Note Content</p>
             <QuillText
               value={content}

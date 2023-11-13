@@ -17,10 +17,10 @@ function classNames(cols) {
     }
 }
 
-function CardsCanvas({ children, cols }) {
+function CardsCanvas({ children, cols, morestyle }) {
     return (
         <>
-            <div className={`grid grid-cols-1 ${classNames(cols)} gap-5 w-full py-5 md:px-2 px-5 h-full overflow-y-scroll`}>
+            <div className={`grid grid-cols-1 ${classNames(cols)} gap-5 w-full py-5 md:px-2 px-5  overflow-y-scroll ${morestyle}`}>
                 {children}
             </div>
         </>

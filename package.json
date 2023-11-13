@@ -13,6 +13,7 @@
     "firebase": "^10.5.2",
     "formik": "^2.4.5",
     "framer-motion": "^10.16.4",
+    "html-react-parser": "^5.0.6",
     "leaflet": "^1.9.4",
     "next": "13.5.6",
     "react": "^18",

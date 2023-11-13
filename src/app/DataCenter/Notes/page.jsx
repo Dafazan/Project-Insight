@@ -7,9 +7,13 @@ import {
     addDoc,
     getDocs,
     orderBy,
+    deleteDoc,
     query,
     where,
     Firestore,
+    getDoc,
+    updateDoc,
+    doc,
 } from "firebase/firestore";
 import { db, storage, firebaseAnalytics, auth } from "../../../firebase";
 import { useEffect, useState } from "react";
@@ -51,15 +55,28 @@ function Page() {
             console.log(error);
         }
     }
+    const [isVisible, setIsVisible] = useState(false);
+    const toggleVisibility = () => {
+        setIsVisible(isVisible => !isVisible);
+    };
+
     return (
         <>
+
+            <button onClick={toggleVisibility} >
+                option
+            </button>
             <CardsCanvas
                 cols={5}
+                morestyle={'h-full'}
             >
                 {dataNotes.map((data, i) => (
                     <>
 
+
                         <TitleStatusCard
+
+                            isButtonVisible={isVisible}
                             key={data.id}
                             initial={{ opacity: 0, height: 30, scale: 0, }}
                             animate={{
@@ -75,7 +92,82 @@ function Page() {
                             status={data.status}
                             incre={i}
 
-                        />
+                        >
+                            <button
+                                onClick={async (e) => {
+                                    const confirmed = window.confirm(
+                                        "Are you sure you want to delete this item?"
+                                    );
+                                    if (confirmed) {
+                                        try {
+                                            // Delete the todo document with the given ID from the "todos" collection in Firestore.
+                                            await deleteDoc(
+                                                doc(db, "notes", data.id)
+                                            );
+                                            alert("delete success");
+                                            location.reload();
+                                            console.log("Deleted successfully");
+                                        } catch (error) {
+                                            console.error(
+                                                "An error occured",
+                                                error
+                                            );
+                                        }
+                                    }
+                                }}
+
+                                className='bg-red-600 px-2'>DEL</button>
+                            <button
+                                onClick={async (e) => {
+                                    const confirmed = window.confirm(
+                                        "Change the visibility?"
+                                    );
+                                    const docRef = doc(db, 'notes', data.id);
+                                    if (confirmed) {
+                                        try {
+
+                                            await updateDoc(docRef, {
+                                                status: 'private',
+                                            });
+                                            alert("update success");
+                                            location.reload();
+                                            console.log("updated successfully");
+                                        } catch (error) {
+                                            console.error(
+                                                "An error occured",
+                                                error
+                                            );
+                                        }
+                                    }
+                                }}
+                                className='border-2 border-b-0 border-blue-500 px-2 text-red-600'>PRI</button>
+                            <button
+                                onClick={async (e) => {
+                                    const confirmed = window.confirm(
+                                        "Change the visibility?"
+                                    );
+                                    const docRef = doc(db, 'notes', data.id);
+                                    if (confirmed) {
+                                        try {
+
+                                            await updateDoc(docRef, {
+                                                status: 'public',
+                                            });
+                                            alert("update success");
+                                            location.reload();
+                                            console.log("updated successfully");
+                                        } catch (error) {
+                                            console.error(
+                                                "An error occured",
+                                                error
+                                            );
+                                        }
+                                    }
+                                }}
+                                className='border-2 border-b-0 border-blue-500 px-2 text-green-500'>PUB</button>
+                        </TitleStatusCard>
+
+
                     </>
 
 
