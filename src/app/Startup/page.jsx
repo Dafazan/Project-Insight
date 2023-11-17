@@ -118,7 +118,7 @@ function Page() {
                         opacity: 1,
                         x: 0,
                         transition: {
-                            height: { duration: 0.8 }, delay: 0.2
+                            height: { duration: 0.8 },
                         }
                     }}
                     link="/"
@@ -132,7 +132,7 @@ function Page() {
                         opacity: 1,
                         x: 0,
                         transition: {
-                            height: { duration: 0.8 },
+                            height: { duration: 0.8 }, delay: 0.2
                         }
                     }}
                     link="https://github.com/"
