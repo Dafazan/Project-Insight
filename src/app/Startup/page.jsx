@@ -118,7 +118,7 @@ function Page() {
                         opacity: 1,
                         x: 0,
                         transition: {
-                            height: { duration: 0.8 }, delay: 1
+                            height: { duration: 0.8 }, delay: 0.2
                         }
                     }}
                     link="/"
@@ -146,7 +146,7 @@ function Page() {
                         opacity: 1,
                         x: 0,
                         transition: {
-                            height: { duration: 0.8 }, delay: 0.2
+                            height: { duration: 0.8 }, delay: 0.4
                         }
                     }}
                     link="https://vercel.com/dashboard"
@@ -160,7 +160,7 @@ function Page() {
                         opacity: 1,
                         x: 0,
                         transition: {
-                            height: { duration: 0.8 }, delay: 0.4
+                            height: { duration: 0.8 }, delay: 0.6
                         }
                     }}
                     link="https://chat.openai.com/"
@@ -174,7 +174,7 @@ function Page() {
                         opacity: 1,
                         x: 0,
                         transition: {
-                            height: { duration: 0.8 }, delay: 0.6
+                            height: { duration: 0.8 }, delay: 0.8
                         }
                     }}
                     link="https://console.firebase.google.com/u/0/"
@@ -188,7 +188,7 @@ function Page() {
                         opacity: 1,
                         x: 0,
                         transition: {
-                            height: { duration: 0.8 }, delay: 0.8
+                            height: { duration: 0.8 }, delay: 1
                         }
                     }}
                     link="https://mail.google.com/mail/u/0/"
