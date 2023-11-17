@@ -160,20 +160,6 @@ function Page() {
                         opacity: 1,
                         x: 0,
                         transition: {
-                            height: { duration: 0.8 }, delay: 0.6
-                        }
-                    }}
-                    link="/"
-                    title='HQ' />
-                <TitleOnlyCard
-                    initial={{
-                        opacity: 0,
-                        x: -800,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: {
                             height: { duration: 0.8 }, delay: 0.8
                         }
                     }}
@@ -236,6 +222,14 @@ function Page() {
                     link="https://www.youtube.com/"
                     title='YouTube' />
             </CardsCanvas>
+            <div className='w-full flex justify-center'>
+                <button>
+                    <svg width="104" height="19" viewBox="0 0 104 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.41421 0C0.523309 0 0.077143 1.07714 0.707108 1.70711L17.7071 18.7071C17.8946 18.8946 18.149 19 18.4142 19H85.5858C85.851 19 86.1054 18.8946 86.2929 18.7071L103.293 1.70711C103.923 1.07714 103.477 0 102.586 0H1.41421Z" fill="#1E40AF" />
+                    </svg>
+
+                </button>
+            </div>
         </>
     )
 }
