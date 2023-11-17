@@ -149,8 +149,8 @@ function Page() {
                             height: { duration: 0.8 }, delay: 0.4
                         }
                     }}
-                    link="https://chat.openai.com/"
-                    title='GPT' />
+                    link="/"
+                    title='HQ' />
                 <TitleOnlyCard
                     initial={{
                         opacity: 0,
@@ -191,8 +191,8 @@ function Page() {
                             height: { duration: 0.8 }, delay: 1
                         }
                     }}
-                    link="https://mail.proton.me/u/0/inbox"
-                    title='P-Mail' />
+                    link="https://chat.openai.com/"
+                    title='GPT' />
                 <TitleOnlyCard
                     initial={{
                         opacity: 0,
