@@ -109,6 +109,20 @@ function Page() {
                 </form>
             </div>
             <CardsCanvas cols={4}>
+                 <TitleOnlyCard
+                    initial={{
+                        opacity: 0,
+                        x: -800,
+                    }}
+                    animate={{
+                        opacity: 1,
+                        x: 0,
+                        transition: {
+                            height: { duration: 0.8 }, delay: 1
+                        }
+                    }}
+                    link="/"
+                    title='HQ' />
                 <TitleOnlyCard
                     initial={{
                         opacity: 0,
@@ -179,20 +193,7 @@ function Page() {
                     }}
                     link="https://mail.google.com/mail/u/0/"
                     title='G-Mail' />
-                <TitleOnlyCard
-                    initial={{
-                        opacity: 0,
-                        x: -800,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: {
-                            height: { duration: 0.8 }, delay: 1
-                        }
-                    }}
-                    link="https://mail.proton.me/u/0/inbox"
-                    title='P-Mail' />
+               
                 <TitleOnlyCard
                     initial={{
                         opacity: 0,
