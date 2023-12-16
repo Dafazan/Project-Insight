@@ -13,24 +13,6 @@ import DesktopLayout from "@/components/Layouts/desktop"
 import { isMobile } from 'react-device-detect';
 
 function Page() {
-  const [isLoginSuceed, setIsLoginSuceed] = useState(false);
-  const { push } = useRouter();
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
-        const uid = user.uid;
-        setIsLoginSuceed(true);
-
-        // ...
-      } else {
-        push("/LoginPage");
-        // User is signed out
-        // ...
-      }
-    });
-  }, []);
   return (
 
     <>
@@ -40,7 +22,7 @@ function Page() {
           signOut(auth);
           localStorage.removeItem("auth");
           localStorage.clear();
-          push("/LoginPage");
+
         }}
       >Logout</button>
     </>
@@ -53,16 +35,10 @@ export default function Home() {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
         const uid = user.uid;
         setIsLoginSuceed(true);
-
-        // ...
       } else {
         push("/LoginPage");
-        // User is signed out
-        // ...
       }
     });
   }, []);
