@@ -12,6 +12,7 @@ import {
   updateDoc,
   doc,
   Firestore,
+  serverTimestamp,
 } from "firebase/firestore";
 import { db, storage, firebaseAnalytics, auth } from "../../../../firebase";
 import { useEffect, useState } from "react";
@@ -49,6 +50,7 @@ function Page() {
       title: title,
       content: content,
       status: status,
+      timestamp: serverTimestamp(),
     });
 
     const handleUpload = () => {

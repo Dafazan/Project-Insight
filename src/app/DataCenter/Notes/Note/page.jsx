@@ -11,6 +11,7 @@ import {
     deleteDoc,
     updateDoc,
     doc,
+    increment,
     Firestore,
 } from "firebase/firestore";
 import { db, storage, firebaseAnalytics, auth } from "../../../../firebase";
@@ -41,9 +42,15 @@ function Page() {
             data.push(querySnapshot.data());
 
             setDataNotes(data);
+            await updateDoc(docRef, {
+                click: increment(0.5),
+            });
         } catch (error) {
             alert(error);
         }
+    }
+    function click() {
+
     }
     return (
         <>
