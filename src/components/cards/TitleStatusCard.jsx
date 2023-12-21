@@ -2,7 +2,7 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 
-function TitleStatusCard({ deletion, isButtonVisible, link, status, title, incre, children, ...props }) {
+function TitleStatusCard({ deletion, isButtonVisible, link, status, title, incre, click, children, ...props }) {
 
 
     return (
@@ -34,7 +34,8 @@ function TitleStatusCard({ deletion, isButtonVisible, link, status, title, incre
 
                     </motion.div>
                 </motion.div>}
-                <a className='w-full h-full' href={link}>
+                <a className='w-full h-full' href={link}
+                    onClick={click}>
                     <div className='w-full h-full flex flex-col items-center justify-center'>
                         <div className='flex w-full h-8'>
                             <div className=' w-8 h-8 border-e-2 border-b-2 border-blue-500'></div>
