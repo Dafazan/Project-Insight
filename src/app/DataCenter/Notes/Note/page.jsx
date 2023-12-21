@@ -43,7 +43,7 @@ function Page() {
 
             setDataNotes(data);
             await updateDoc(docRef, {
-                click: increment(0.5),
+                click: increment(1),
             });
         } catch (error) {
             alert(error);
