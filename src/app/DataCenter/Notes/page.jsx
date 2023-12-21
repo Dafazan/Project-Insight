@@ -14,6 +14,7 @@ import {
     getDoc,
     updateDoc,
     doc,
+    increment,
 } from "firebase/firestore";
 import { db, storage, firebaseAnalytics, auth } from "../../../firebase";
 import { useEffect, useState } from "react";
@@ -165,6 +166,7 @@ function Page() {
                                     }
                                 }}
                                 className='border-2 border-b-0 border-blue-500 px-2 text-green-500'>PUB</button>
+                            {/* <a href={`/DataCenter/Notes/EditNotePage?id=${data.id}`}>EDIT</a> */}
                         </TitleStatusCard>
 
 
