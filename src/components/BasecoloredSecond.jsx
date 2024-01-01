@@ -1,4 +1,6 @@
 import React from 'react'
+import Clock from '@/components/Clock'
+import Calendar from '@/components/Calendar'
 
 function BasecoloredSecond() {
     return (
@@ -90,6 +92,15 @@ function BasecoloredSecond() {
                 <div className='w-full h-full flex justify-center px-24 pb-10 pt-14 items-center'>
 
                     <img className='opacity-40' src="bgicon.png" alt="" />
+                </div>
+            </div>
+            <div className="w-full h-full px-24 pb-10 pt-14 absolute">
+                <div className='w-full h-full flex justify-center px-24 pb-10 pt-14 items-end '>
+
+                    <div className=' w-60 h-10 translate-y-16 flex justify-center items-center gap-6 '>
+                        <Clock />
+                        <Calendar />
+                    </div>
                 </div>
             </div>
         </>
