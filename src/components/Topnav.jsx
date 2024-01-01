@@ -19,7 +19,7 @@ function Topnav() {
                     <div className='w-[1px] h-[15px] bg-blue-500'></div>
                     <a className='hover:text-yellow-300' href="/Info">Information</a>
                     <div className='w-[1px] h-[15px] bg-blue-500'></div>
-                    <a className='hover:text-yellow-300' href="/DataCenter/Notes">Notes</a>
+                    <a className='hover:text-yellow-300' href="/Pubnotes">Notes</a>
                     <div className='w-[2px] h-[15px] bg-blue-500'></div>
                 </div>
                 <div className='w-full h-[2px] bg-blue-500'></div>
