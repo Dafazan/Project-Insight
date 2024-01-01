@@ -11,7 +11,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import MobileLayout from "@/components/Layouts/mobile"
 import DesktopLayout from "@/components/Layouts/desktop"
 import { isMobile } from 'react-device-detect';
-
+import SideButton from '@/components/Buttons/SideButton'
 import React from 'react'
 import { useSearchParams } from "next/navigation";
 import {
@@ -109,7 +109,12 @@ export default function Home() {
   useEffect(() => {
     setIsClient(true);
   }, []);
+  const [number, setNumber] = useState(0);
 
+  const handleClick = () => {
+    // Change the value of the number variable here
+    setNumber(number + 1);
+  };
 
   return (
     <>
@@ -122,8 +127,21 @@ export default function Home() {
                   <Page />
                 </MobileLayout>
               ) : (
-                <DesktopLayout>
+                <DesktopLayout
+                  button1={<SideButton click={handleClick} text={'ADD'} />}
+                  button2={<SideButton text={'ACT1'} />}
+                  button3={<SideButton text={'ACT2'} />}
+                  button4={<SideButton text={'ACT3'} />}
+                  button5={<SideButton text={'ACT4'} />}
+                  button6={<SideButton text={'ACT5'} />}
+                  button7={<SideButton text={'ACT6'} />}
+                  button8={<SideButton text={'ACT7'} />}
+                  button9={<SideButton text={'ACT8'} />}
+                  button10={<SideButton text={'ACT9'} />}
+                  button11={<SideButton text={'ACT10'} />}
+                  button12={<SideButton text={'ACT11'} />}>
                   <Page />
+                  <p>Num{number}</p>
                 </DesktopLayout>
               )}
             </>
