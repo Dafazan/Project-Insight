@@ -24,6 +24,9 @@ import NoteMobile from '@/components/Layouts/NoteMobile'
 import AppName from '@/components/Layouts/AppName'
 import parser from "html-react-parser";
 import "react-quill/dist/quill.snow.css";
+import SideButton from '@/components/Buttons/SideButton'
+import SideLink from '@/components/Buttons/SideLink'
+import DesktopLayout from '@/components/Layouts/desktop'
 
 function Page() {
     const searchParams = useSearchParams();
@@ -60,7 +63,7 @@ function Page() {
                     return (
                         <>
 
-                            <div className='w-full h-full flex flex-col'>
+                            <div className='w-full h-full flex flex-col '>
                                 <div className='w-full bgblurblue'>
                                     <div className='w-full h-2 '>
                                         <div className='w-full flex gap-1 '>
@@ -142,7 +145,17 @@ function Note() {
                                     <Page />
                                 </MobileInnerLayout>
                             ) : (
-                                <Page />
+                                <DesktopLayout
+                                    button12={<SideLink link={'/DataCenter/Notes/NoteEntry'} text={'DISS'} />}
+                                    button1={<SideButton text={'EDIT'} />}
+                                    button2={<SideButton text={'DEL'} />}
+                                    button3={<SideButton text={'VSB'} />}
+
+                                >
+
+                                    <Page />
+                                </DesktopLayout>
+
                             )}
                         </>
                     )}
