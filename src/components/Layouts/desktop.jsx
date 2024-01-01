@@ -4,7 +4,19 @@ import BasecoloredSecond from '@/components/BasecoloredSecond'
 import Topnav from '@/components/Topnav'
 import Fullscreenrec from '@/components/Fullscreenrec'
 
-function DesktopLayout({ children }) {
+function DesktopLayout({ children,
+    button1,
+    button2,
+    button3,
+    button4,
+    button5,
+    button6,
+    button7,
+    button8,
+    button9,
+    button10,
+    button11,
+    button12 }) {
     return (
         <>
 
@@ -28,29 +40,30 @@ function DesktopLayout({ children }) {
                             <div className='w-[96px] h-full flex flex-col justify-between pointer-events-auto'>
                                 <div className='h-32 ps-1 flex flex-col justify-between text-xs'>
                                     <div className='flex'>
-                                        <button className=' w-56 py-1 border border-t-0 border-yellow-300 hover:bg-[#002c41]'>Button</button>
+                                        {button1}
+
                                         <div className=' w-full border-t border-yellow-300'></div>
                                     </div>
                                     <div className='flex'>
-                                        <button className=' w-56 py-1 border border-t-0 border-yellow-300 hover:bg-[#002c41]'>Button</button>
+                                        {button2}
                                         <div className=' w-full border-t border-yellow-300'></div>
                                     </div>
                                     <div className='flex'>
-                                        <button className=' w-56 py-1 border border-t-0 border-yellow-300 hover:bg-[#002c41]'>Button</button>
+                                        {button3}
                                         <div className=' w-full border-t border-yellow-300'></div>
                                     </div>
                                 </div>
                                 <div className='h-32 ps-1 flex flex-col justify-between text-xs'>
                                     <div className='flex'>
-                                        <button className=' w-56 py-1 border border-t-0 border-yellow-300 hover:bg-[#002c41]'>Button</button>
+                                        {button4}
                                         <div className=' w-full border-t border-yellow-300'></div>
                                     </div>
                                     <div className='flex'>
-                                        <button className=' w-56 py-1 border border-t-0 border-yellow-300 hover:bg-[#002c41]'>Button</button>
+                                        {button5}
                                         <div className=' w-full border-t border-yellow-300'></div>
                                     </div>
                                     <div className='flex'>
-                                        <button className=' w-56 py-1 border border-t-0 border-yellow-300 hover:bg-[#002c41]'>Button</button>
+                                        {button6}
                                         <div className=' w-full border-t border-yellow-300'></div>
                                     </div>
                                 </div>
@@ -61,29 +74,29 @@ function DesktopLayout({ children }) {
                                 <div className='h-36 pe-1 flex flex-col justify-between text-xs'>
                                     <div className='flex'>
                                         <div className=' w-full border-t border-yellow-300'></div>
-                                        <button className=' w-56 py-1 border border-t-0 border-yellow-300 hover:bg-[#002c41]'>Button</button>
+                                        {button7}
                                     </div>
                                     <div className='flex'>
                                         <div className=' w-full border-t border-yellow-300'></div>
-                                        <button className=' w-56 py-1 border border-t-0 border-yellow-300 hover:bg-[#002c41]'>Button</button>
+                                        {button8}
                                     </div>
                                     <div className='flex'>
                                         <div className=' w-full border-t border-yellow-300'></div>
-                                        <button className=' w-56 py-1 border border-t-0 border-yellow-300 hover:bg-[#002c41]'>Button</button>
+                                        {button9}
                                     </div>
                                 </div>
                                 <div className='h-32 pe-1 flex flex-col justify-between text-xs'>
                                     <div className='flex'>
                                         <div className=' w-full border-t border-yellow-300'></div>
-                                        <button className=' w-56 py-1 border border-t-0 border-yellow-300 hover:bg-[#002c41]'>Button</button>
+                                        {button10}
                                     </div>
                                     <div className='flex'>
                                         <div className=' w-full border-t border-yellow-300'></div>
-                                        <button className=' w-56 py-1 border border-t-0 border-yellow-300 hover:bg-[#002c41]'>Button</button>
+                                        {button11}
                                     </div>
                                     <div className='flex'>
                                         <div className=' w-full border-t border-yellow-300'></div>
-                                        <button className=' w-56 py-1 border border-t-0 border-yellow-300 hover:bg-[#002c41]'>Button</button>
+                                        {button12}
                                     </div>
                                 </div>
                             </div>

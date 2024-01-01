@@ -4,7 +4,7 @@ import SideNav from './SideNav'
 
 function MobileInnerLayout({ children, isNotes, isLetters, isArchives, isTasks, isEntry, isLists, backlink, entrylink }) {
     return (
-        <>
+        <div className='w-full flex'>
             <SideNav>
                 <div ></div>
                 <div ></div>
@@ -17,11 +17,11 @@ function MobileInnerLayout({ children, isNotes, isLetters, isArchives, isTasks, 
                 <a className={`text-${isEntry ? ' text-white bg-blue-500 px-3 py-[1px] -translate-y-1' : 'text-blue-500'}`} href={entrylink}>Entry</a>
                 <a className={`text-${isLists ? ' text-white bg-blue-500 px-3 py-[1px] -translate-y-1' : 'text-blue-500'}`} href={backlink}>Lists</a>
             </SideNav>
-            <div className='border-2 border-blue-500 p-3 w-full h-full '>
+            <div className='border-2 border-blue-500 p-3 w-full '>
 
                 {children}
             </div>
-        </>
+        </div>
     )
 }
 

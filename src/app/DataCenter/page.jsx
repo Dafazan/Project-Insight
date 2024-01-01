@@ -12,6 +12,8 @@ import { useRouter } from "next/navigation";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
 import AppName from '@/components/Layouts/AppName';
+import SideButton from '@/components/Buttons/SideButton'
+
 
 
 
@@ -127,7 +129,10 @@ function DataCenter() {
                                     <Page />
                                 </MobileInnerLayout>
                             ) : (
-                                <Page />
+                                <DesktopLayout>
+
+                                    <Page />
+                                </DesktopLayout>
                             )}
                         </>
                     )}

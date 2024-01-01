@@ -48,9 +48,9 @@ function Layout({ children }) {
                                     {children}
                                 </MobileLayout>
                             ) : (
-                                <DesktopLayout>
+                                <>
                                     {children}
-                                </DesktopLayout>
+                                </>
                             )}
                         </>
                     )}
