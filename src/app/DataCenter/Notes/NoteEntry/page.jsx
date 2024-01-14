@@ -51,6 +51,7 @@ function Page() {
       content: content,
       status: status,
       timestamp: serverTimestamp(),
+      source: "web"
     });
 
     const handleUpload = () => {
