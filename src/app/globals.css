@@ -74,6 +74,13 @@ body {
   overflow: hidden;
 }
 
+.bgblurbluef {
+  /* From https://css.glass */
+  background: rgba(30, 58, 138, 0.3);
+  backdrop-filter: blur(8px);
+
+}
+
 .bgblurred {
   /* From https://css.glass */
   background: rgba(220, 38, 38, 0.4);

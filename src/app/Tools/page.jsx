@@ -15,13 +15,10 @@ import AppName from '@/components/Layouts/AppName';
 import SideButton from '@/components/Buttons/SideButton'
 
 
-
-
 function Page() {
-
     return (
         <>
-            <CardsCanvas cols={3}>
+            <CardsCanvas cols={4}>
                 <TitleOnlyCard
                     initial={{
                         opacity: 0,
@@ -34,8 +31,8 @@ function Page() {
                             height: { duration: 0.8 },
                         }
                     }}
-                    link="/DataCenter/Notes"
-                    title='Notes' />
+                    link="/Tools/Clock"
+                    title='CLOCK' />
                 <TitleOnlyCard
                     initial={{
                         opacity: 0,
@@ -48,57 +45,17 @@ function Page() {
                             height: { duration: 0.8 }, delay: 0.2
                         }
                     }}
-                    link="/DataCenter/Archives"
-                    title='Archives' />
-                <TitleOnlyCard
-                    initial={{
-                        opacity: 0,
-                        x: -500,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: {
-                            height: { duration: 0.8 }, delay: 0.4
-                        }
-                    }}
-                    link="/DataCenter/Tasks"
-                    title='Tasks' />
-                <TitleOnlyCard
-                    initial={{
-                        opacity: 0,
-                        x: -500,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: {
-                            height: { duration: 0.8 }, delay: 0.5
-                        }
-                    }}
-                    link="/DataCenter/Letters"
-                    title='Letters' />
-                <TitleOnlyCard
-                    initial={{
-                        opacity: 0,
-                        x: -500,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        x: 0,
-                        transition: {
-                            height: { duration: 0.8 }, delay: 0.5
-                        }
-                    }}
-                    link="/DataCenter/ShortenUrl"
-                    title='Shorten Url' />
+                    link="/Tools/UrlShortener"
+                    title='URL SHORTENER' />
+
 
             </CardsCanvas>
         </>
     )
 }
 
-function DataCenter() {
+
+function Tools() {
     const [isLoginSuceed, setIsLoginSuceed] = useState(false);
     const { push } = useRouter();
     useEffect(() => {
@@ -106,8 +63,6 @@ function DataCenter() {
             if (user) {
                 const uid = user.uid;
                 setIsLoginSuceed(true);
-
-                // ...
             } else {
                 push("/LoginPage");
             }
@@ -119,6 +74,7 @@ function DataCenter() {
         setIsClient(true);
     }, []);
 
+
     return (
         <>
             {isLoginSuceed ? (
@@ -126,27 +82,22 @@ function DataCenter() {
                     {isClient && (
                         <>
                             {isMobile ? (
-                                <MobileInnerLayout isLists={true} >
+                                <MobileInnerLayout isNotes={false} isEntry={true} backlink={'/Tools'}>
                                     <Page />
                                 </MobileInnerLayout>
                             ) : (
-                                <DesktopLayout>
 
+                                <DesktopLayout >
                                     <Page />
+
                                 </DesktopLayout>
                             )}
                         </>
                     )}
                 </>
             ) : null}
-
-
-
-
-
-
         </>
     )
 }
 
-export default DataCenter
+export default Tools

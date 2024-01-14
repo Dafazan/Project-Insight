@@ -20,6 +20,16 @@ function Page() {
             <div className='w-full h-full'>
                 <p>Page Under Constructions</p>
                 <br />
+                <p>Added Features:</p>
+                <p>Authentication</p>
+                <p>Notes with privacy options</p>
+                <p>Clock</p>
+                <p>URL Shortener</p>
+                <p>Startup Page</p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <br />
 
                 <br />
                 <p>Made With</p>

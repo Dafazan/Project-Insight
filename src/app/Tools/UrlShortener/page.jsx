@@ -21,7 +21,8 @@ import { useRouter } from "next/navigation";
 import { onAuthStateChanged } from "firebase/auth";
 import { isMobile } from 'react-device-detect'
 import DesktopLayout from "@/components/Layouts/desktop"
-import NoteMobile from '@/components/Layouts/NoteMobile'
+import SideLink from '@/components/Buttons/SideLink'
+import SideButton from '@/components/Buttons/SideButton'
 import AppName from '@/components/Layouts/AppName'
 import ButtonDefault from '@/components/Buttons/ButtonDefault'
 import { motion } from 'framer-motion';
@@ -35,7 +36,7 @@ function Page() {
     const [isInvalidUrl, setIsInvalidUrl] = useState(false);
     const [isUsedUrl, setIsUsedUrl] = useState(false);
     const [isSucceed, setIsSucceed] = useState(false);
-
+    const websiteHostname = window.location.hostname.substring(4);;
     async function addData(e) {
         e.preventDefault();
         if (!validateUrl(url)) {
@@ -77,13 +78,19 @@ function Page() {
 
     const handleCopy = async () => {
         try {
-            await navigator.clipboard.writeText("dtc.my.id/" + shorten);
+            await navigator.clipboard.writeText(websiteHostname + "/" + shorten);
             alert('Text copied to clipboard!');
         } catch (err) {
             console.error('Error copying text:', err);
             alert('Failed to copy text. Please try again.');
         }
     };
+
+    const handleClear = () => {
+        setTitle("");
+        setShorten("");
+        setUrl("");
+    }
     const handleMakeMore = () => {
         setIsSucceed(false);
         setTitle("");
@@ -215,8 +222,8 @@ function Page() {
                     <form onSubmit={addData} className='flex flex-col gap-5 w-full'>
                         <input className='text-green-500 border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1' type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
                         <input className='text-green-500 border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1' type="text" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="Input your url" required />
-                        <div className='flex justify-center '>
-                            <p className='text-2xl my-auto text-green-500'>dtc.my.id/</p>
+                        <div className='flex-col flex md:flex-row justify-center '>
+                            <p className='text-2xl my-auto text-green-500'>{websiteHostname}/</p>
                             <input className='text-green-500 border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1' type="text" value={shorten} onChange={(e) => setShorten(e.target.value)} placeholder="Choose-Shorten-Url" required />
                         </div>
                         <ButtonDefault
@@ -248,6 +255,10 @@ function Page() {
 
 
 function UrlShortener() {
+
+    const handleRefresh = () => {
+        window.location.reload();
+    }
     const [isLoginSuceed, setIsLoginSuceed] = useState(false);
     const { push } = useRouter();
     useEffect(() => {
@@ -279,7 +290,10 @@ function UrlShortener() {
                                 </MobileInnerLayout>
                             ) : (
 
-                                <DesktopLayout >
+                                <DesktopLayout
+                                    button1={<SideLink link={'/Tools'} text={'ESC'} />}
+                                    button2={<SideButton click={handleRefresh} text={'RLD'} />}
+                                >
                                     <Page />
 
                                 </DesktopLayout>
