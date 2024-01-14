@@ -4,6 +4,7 @@ import {
     collection,
     doc,
     getDoc,
+    updateDoc,
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useRouter } from "next/navigation";
@@ -22,14 +23,20 @@ function Custom({ params }) {
                 const docRef = doc(db, "url-shortener", params.custom); // Reference the specific document
                 const docSnap = await getDoc(docRef);
                 setFetchedDocumentData(docSnap.data());
+
             } catch (error) {
                 setError(error);
             } finally {
                 setIsLoading(false);
             }
+            await updateDoc(docRef, {
+                click: increment(1),
+            });
+
         };
 
         fetchData();
+
     }, [params]);
 
     const { push } = useRouter();
