@@ -43,26 +43,24 @@ function Custom({ params }) {
 
     return (
         <>
-            <div className='w-screen h-screen flex flex-col items-center justify-between'>
-                <div className='h-[70%] w-full flex flex-col justify-center items-center'>
-                    <p className='text-2xl text-green-500 font-medium pb-5'>GETTING YOUR URL</p>
-                    <motion.div
-                        animate={{ rotate: 360 }} // rotate 360 degrees
-                        transition={{ duration: 1, delay: 1, repeat: Infinity }} // repeat the animation infinitely
-                        style={{ width: 100, height: 100, }} // set your desired styles
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8,12a1,1,0,0,0,1,1h6a1,1,0,0,0,0-2H9A1,1,0,0,0,8,12Zm2,3H7A3,3,0,0,1,7,9h3a1,1,0,0,0,0-2H7A5,5,0,0,0,7,17h3a1,1,0,0,0,0-2Zm7-8H14a1,1,0,0,0,0,2h3a3,3,0,0,1,0,6H14a1,1,0,0,0,0,2h3A5,5,0,0,0,17,7Z" fill='#22c55e' /></svg>
-                    </motion.div>
-                </div>
-                <br />
-                <div className='p-14 md:w-[400px]'>
-                    <p className='mx-1'>Powered by:</p>
-                    <img src="bgicon.png" alt="" />
-                </div>
-            </div>
-            {/* {isLoading ? (
-                <div className='w-screen h-screen flex items-center justify-center'>
-                    <p className='text-xl text-green-500 font-medium'>GETTING YOUR URL...</p>
+
+            {isLoading ? (
+                <div className='w-screen h-screen flex flex-col items-center justify-between'>
+                    <div className='h-[70%] w-full flex flex-col justify-center items-center'>
+                        <p className='text-2xl text-green-500 font-medium pb-5'>GETTING YOUR URL</p>
+                        <motion.div
+                            animate={{ rotate: 360 }} // rotate 360 degrees
+                            transition={{ duration: 1, delay: 1, repeat: Infinity }} // repeat the animation infinitely
+                            style={{ width: 100, height: 100, }} // set your desired styles
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8,12a1,1,0,0,0,1,1h6a1,1,0,0,0,0-2H9A1,1,0,0,0,8,12Zm2,3H7A3,3,0,0,1,7,9h3a1,1,0,0,0,0-2H7A5,5,0,0,0,7,17h3a1,1,0,0,0,0-2Zm7-8H14a1,1,0,0,0,0,2h3a3,3,0,0,1,0,6H14a1,1,0,0,0,0,2h3A5,5,0,0,0,17,7Z" fill='#22c55e' /></svg>
+                        </motion.div>
+                    </div>
+                    <br />
+                    <div className='p-14 md:w-[400px]'>
+                        <p className='mx-1'>Powered by:</p>
+                        <img src="bgicon.png" alt="" />
+                    </div>
                 </div>
             ) : (
                 <>
@@ -97,7 +95,7 @@ function Custom({ params }) {
                         </div>
                     )}
                 </>
-            )} */}
+            )}
         </>
     );
 }
