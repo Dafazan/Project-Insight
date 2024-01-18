@@ -31,7 +31,7 @@ function Page() {
                             height: { duration: 0.8 },
                         }
                     }}
-                    link="/Tools/Clock"
+                    link="/Startup/Clock"
                     title='CLOCK' />
                 <TitleOnlyCard
                     initial={{
@@ -47,6 +47,20 @@ function Page() {
                     }}
                     link="/Tools/UrlShortener"
                     title='URL SHORTENER' />
+                <TitleOnlyCard
+                    initial={{
+                        opacity: 0,
+                        x: -500,
+                    }}
+                    animate={{
+                        opacity: 1,
+                        x: 0,
+                        transition: {
+                            height: { duration: 0.8 }, delay: 0.2
+                        }
+                    }}
+                    link="/Tools/QrGenerator"
+                    title='QR GENERATOR' />
 
 
             </CardsCanvas>
