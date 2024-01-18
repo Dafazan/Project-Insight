@@ -212,6 +212,7 @@ function Page() {
     function validateUrl(url) {
         return urlRegex.test(url);
     }
+
     return (
         <>
             <div className='flex w-full h-full justify-center items-center'>
@@ -221,10 +222,10 @@ function Page() {
                     </div>
                     <form onSubmit={addData} className='flex flex-col gap-5 w-full'>
                         <input className='text-green-500 border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1' type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
-                        <input className='text-green-500 border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1' type="text" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="Input your url" required />
+                        <input onKeyDown={(event) => (event.keyCode === 32 ? event.preventDefault() : null)} className='text-green-500 border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1' type="text" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="Input your url, ex. https://www.yourwebsite/page.domain" required />
                         <div className='flex-col flex md:flex-row justify-center '>
                             <p className='text-2xl my-auto text-green-500'>{websiteHostname}/</p>
-                            <input className='text-green-500 border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1' type="text" value={shorten} onChange={(e) => setShorten(e.target.value)} placeholder="Choose-Shorten-Url" required />
+                            <input onKeyDown={(event) => (event.keyCode === 32 ? event.preventDefault() : null)} className='text-green-500 border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1' type="text" value={shorten} onChange={(e) => setShorten(e.target.value)} placeholder="Choose-Shorten-Url" required />
                         </div>
                         <ButtonDefault
                             text={'SHORTEN URL'}
