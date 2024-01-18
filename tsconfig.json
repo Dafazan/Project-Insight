@@ -34,7 +34,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/DataCenter/Layout.jsx",
-    "src/app/page.jsx"
+    "src/app/page.jsx",
+    "src/app/Tools/QrGenerator/page.jsx"
   ],
   "exclude": [
     "node_modules"
