@@ -31,6 +31,11 @@ body {
   background: radial-gradient(circle, rgba(0, 21, 128, 1) 0%, rgba(0, 0, 0, 1) 100%);
 }
 
+.body {
+  background: rgb(0, 21, 128);
+  background: radial-gradient(circle, rgba(0, 21, 128, 1) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
 .base1 {
   background-color: #002c41;
 }
