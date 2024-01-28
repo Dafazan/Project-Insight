@@ -29,17 +29,18 @@ import QuillText from '@/components/QuillText'
 
 function EntryForm() {
     const [title, setTitle] = useState("");
+    const [booktype, setBooktype] = useState("");
     const [author, setAuthor] = useState("");
     const [isbn, setIsbn] = useState("");
     const [publisher, setPublisher] = useState("");
     const [year, setYear] = useState("");
     const [pages, setPages] = useState("");
-    const [isSeries, setIsSeries] = useState();
+
     const [series, setSeries] = useState("-");
     const [cover, setCover] = useState("coverurl");
 
     const [data, setData] = useState([
-        { title: "", author: "", isbn: "", publisher: "", year: "", pages: "", isSeries: "", series: "", cover: "" },
+        { title: "", booktype: "", author: "", isbn: "", publisher: "", year: "", pages: "", series: "", cover: "" },
     ]);
 
     const handleChange = (value) => {
@@ -52,12 +53,12 @@ function EntryForm() {
 
         const docRef = await addDoc(collection(db, "books"), {
             title: title,
+            booktype: booktype,
             author: author,
             isbn: isbn,
             publisher: publisher,
             year: year,
             pages: pages,
-            isSeries: isSeries,
             series: series,
             cover: cover,
             timestamp: serverTimestamp(),
@@ -67,7 +68,7 @@ function EntryForm() {
         const handleUpload = () => {
             setData([
                 ...data,
-                { title: "", author: "", isbn: "", publisher: "", year: "", pages: "", isSeries: "", series: "", cover: "" }
+                { title: "", booktype: "", author: "", isbn: "", publisher: "", year: "", pages: "", series: "", cover: "" }
             ]);
         };
 
@@ -86,6 +87,12 @@ function EntryForm() {
                         type="text"
                         className='text-green-500 border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1'
                     />
+                    <p>Book Type</p>
+                    <input
+                        onChange={(e) => setBooktype(e.target.value)}
+                        type="text"
+                        className='text-green-500 border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1'
+                    />
                     <p>Book Author</p>
                     <input
                         onChange={(e) => setAuthor(e.target.value)}
@@ -98,33 +105,7 @@ function EntryForm() {
                         type="text"
                         className='text-green-500 border-b-[1px] border-blue-500 text-2xl w-full focus:outline-none focus:border-opacity-100 bg-transparent py-1'
                     />
-                    <p>BOOK TYPE</p>
-                    <div className='flex gap-2 w-full mt-2'>
-                        <label className='w-full'>
-                            <div className=' flex justify-center items-center relative p-1'>
-                                <input
-                                    type="radio"
-                                    value="false"
-                                    className='appearance-none border-2 border-blue-500 absolute w-full h-full checked:bg-red-500 checked:border-red-500 p-2 cursor-pointer transition duration-300'
-                                    checked={isSeries === false}
-                                    onChange={() => setIsSeries(true)}
-                                />
-                                <p className='z-20'>SERIES</p>
-                            </div>
-                        </label>
-                        <label className='w-full'>
-                            <div className=' flex justify-center items-center relative p-1'>
-                                <input
-                                    type="radio"
-                                    value="true"
-                                    className='appearance-none border-2 border-blue-500 absolute w-full h-full checked:bg-green-600 checked:border-green-500 p-2 cursor-pointer transition duration-300'
-                                    checked={isSeries === true}
-                                    onChange={() => setIsSeries(false)}
-                                />
-                                <p className='z-20'>STANDALONE</p>
-                            </div>
-                        </label>
-                    </div>
+
                     <p>Book series</p>
                     <input
                         onChange={(e) => setSeries(e.target.value)}
