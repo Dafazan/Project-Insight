@@ -30,8 +30,22 @@ function Page() {
                             height: { duration: 0.8 },
                         }
                     }}
+                    link="/DataCenter/Archives/BookArchives"
+                    title='Books Archive' />
+                <TitleOnlyCard
+                    initial={{
+                        opacity: 0,
+                        x: -500,
+                    }}
+                    animate={{
+                        opacity: 1,
+                        x: 0,
+                        transition: {
+                            height: { duration: 0.8 },
+                        }
+                    }}
                     link="/DataCenter/Archives/NoteArchives"
-                    title='Notes Archives' />
+                    title='Notes Archive' />
                 <TitleOnlyCard
                     initial={{
                         opacity: 0,

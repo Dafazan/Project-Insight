@@ -65,7 +65,7 @@ function Page() {
   return (
 
     <>
-      <button
+      {/* <button
 
         onClick={() => {
           signOut(auth);
@@ -85,7 +85,9 @@ function Page() {
           <p>Visitor: {data.click}</p>
           <p>========================</p>
         </>
-      ))}
+      ))} */}
+
+
     </>
   )
 }
@@ -124,7 +126,7 @@ export default function Home() {
             <>
               {isMobile ? (
                 <MobileLayout>
-                  <Page />
+                  <p>Use Desktop To View This Page</p>
                 </MobileLayout>
               ) : (
                 <DesktopLayout
