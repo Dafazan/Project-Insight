@@ -7,6 +7,7 @@ function MovieCorner() {
 
     return (
         <>
+
             <Search />
             <Popular />
         </>
