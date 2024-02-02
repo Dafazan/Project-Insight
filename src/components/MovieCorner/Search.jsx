@@ -17,6 +17,7 @@ import {
     Firestore,
     serverTimestamp,
 } from "firebase/firestore";
+import Moviecard from '@/components/MovieCorner/Moviecard'
 function Search() {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -81,7 +82,7 @@ function Search() {
     return (
         <>
             <div className="p-10">
-                <div className="flex gap-5">
+                <div className="flex flex-col md:flex-row gap-5">
                     <div className="w-full">
                         <h1>Movie Search</h1>
                         <form onSubmit={handleSubmit}>
@@ -112,56 +113,60 @@ function Search() {
                 {isLoading && <p>Loading results...</p>}
                 {error && <p>Error: {error.message}</p>}
                 {searchResults.length > 0 && (
-                    <div className="grid grid-cols-4 gap-5">
-                        {searchResults.map((movie) => (
-                            <div key={movie.id}>
-                                <div className="flex gap-2 p-4 h-full items-center justify-center bgblurbluef border-2 border-blue-500">
-                                    <div className="w-20 bg-blue-900">
-                                        <img
-                                            className="w-20"
-                                            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                                            alt={movie.title}
-                                        />
-                                    </div>
-                                    <div className="w-52">
-                                        <a
-                                            href={`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${process.env.NEXT_TMDB_API_KEY}`}
-                                            className="text-xl text-lime-500 line-clamp-1"
-                                        >
-                                            {isMovie ? movie.title : movie.name}
+                    <>
+                        <h1 className="md:text-3xl text-xl pb-3 font-medium">Search results for <span className="text-lime-600">&quot;{searchTerm}&quot;</span> in {isMovie ? 'movies' : 'tv series'} :</h1>
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+                            {searchResults.map((movie) => (
+                                <Moviecard key={movie.id} img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} title={isMovie ? movie.title : movie.name} desc={movie.overview} />
+                                // <div key={movie.id}>
+                                //     <div className="flex gap-2 p-4 h-full items-center justify-center bgblurbluef border-2 border-blue-500">
+                                //         <div className="w-20 bg-blue-900">
+                                //             <img
+                                //                 className="w-20"
+                                //                 src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                                //                 alt={movie.title}
+                                //             />
+                                //         </div>
+                                //         <div className="w-52">
+                                //             <a
+                                //                 href={`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${process.env.NEXT_TMDB_API_KEY}`}
+                                //                 className="text-xl text-lime-500 line-clamp-1"
+                                //             >
+                                //                 {isMovie ? movie.title : movie.name}
 
-                                        </a>
-                                        <p className="line-clamp-3 text-blue-500">
-                                            {movie.overview}
-                                        </p>
-                                        <button
-                                            onClick={async (e) => {
-                                                const confirmed = window.confirm("Save?");
-                                                if (confirmed) {
-                                                    try {
-                                                        // Delete the todo document with the given ID from the "todos" collection in Firestore.
-                                                        await addDoc(collection(db, "movies"), {
-                                                            movie: `https://api.themoviedb.org/3/movie/${movie.id}`,
-                                                            //movie: `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${process.env.NEXT_TMDB_API_KEY}`,
-                                                            timestamp: serverTimestamp(),
-                                                            source: "web",
-                                                        });
-                                                        alert("success");
-                                                        console.log(" successfully saved");
-                                                    } catch (error) {
-                                                        console.error("An error occured", error);
-                                                    }
-                                                }
-                                            }}
-                                            className="bg-blue-500 rounded-md p-5"
-                                        >
-                                            Save
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                                //             </a>
+                                //             <p className="line-clamp-3 text-blue-500">
+                                //                 {movie.overview}
+                                //             </p>
+                                //             <button
+                                //                 onClick={async (e) => {
+                                //                     const confirmed = window.confirm("Save?");
+                                //                     if (confirmed) {
+                                //                         try {
+                                //                             // Delete the todo document with the given ID from the "todos" collection in Firestore.
+                                //                             await addDoc(collection(db, "movies"), {
+                                //                                 movie: `https://api.themoviedb.org/3/movie/${movie.id}`,
+                                //                                 //movie: `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${process.env.NEXT_TMDB_API_KEY}`,
+                                //                                 timestamp: serverTimestamp(),
+                                //                                 source: "web",
+                                //                             });
+                                //                             alert("success");
+                                //                             console.log(" successfully saved");
+                                //                         } catch (error) {
+                                //                             console.error("An error occured", error);
+                                //                         }
+                                //                     }
+                                //                 }}
+                                //                 className="bg-blue-500 rounded-md p-5"
+                                //             >
+                                //                 Save
+                                //             </button>
+                                //         </div>
+                                //     </div>
+                                // </div>
+                            ))}
+                        </div>
+                    </>
                 )}
             </div>
         </>
