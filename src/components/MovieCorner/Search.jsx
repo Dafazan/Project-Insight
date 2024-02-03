@@ -115,9 +115,9 @@ function Search() {
                 {searchResults.length > 0 && (
                     <>
                         <h1 className="md:text-3xl text-xl pb-3 font-medium">Search results for <span className="text-lime-600">&quot;{searchTerm}&quot;</span> in {isMovie ? 'movies' : 'tv series'} :</h1>
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                             {searchResults.map((movie) => (
-                                <Moviecard key={movie.id} img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} title={isMovie ? movie.title : movie.name} desc={movie.overview} />
+                                <Moviecard key={movie.id} id={movie.id} img={movie.poster_path} title={isMovie ? movie.title : movie.name} desc={movie.overview} />
                                 // <div key={movie.id}>
                                 //     <div className="flex gap-2 p-4 h-full items-center justify-center bgblurbluef border-2 border-blue-500">
                                 //         <div className="w-20 bg-blue-900">
