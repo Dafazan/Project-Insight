@@ -50,8 +50,8 @@ function Popular() {
             {movies.length > 0 && (
                 <div className="p-10 pt-0">
                     <h1 className="md:text-3xl text-xl pb-3 font-medium">Popular Movies</h1>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 ">                    {movies.map((movie) => (
-                        <Moviecard key={movie.id} img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} title={movie.title} desc={movie.overview} />
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">                    {movies.map((movie) => (
+                        <Moviecard key={movie.id} id={movie.id} img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} title={movie.title} desc={movie.overview} />
                         // <div key={movie.id}>
                         //     <div className="flex gap-2 p-4 h-full items-center justify-center bgblurbluef border-2 border-blue-500">
                         //         <div className="w-20 bg-blue-900">
