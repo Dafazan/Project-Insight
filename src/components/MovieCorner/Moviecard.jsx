@@ -17,7 +17,7 @@ import {
     serverTimestamp,
 } from "firebase/firestore";
 
-function Moviecard({ title, desc, img, id }) {
+function Moviecard({ children, title, desc, img, id }) {
 
     const [cardState, setCardState] = useState(0);
     const [rating, setRating] = useState(0);
@@ -48,8 +48,7 @@ function Moviecard({ title, desc, img, id }) {
                 const watchlistRef = doc(db, "moviewatchlist", `${id}`);
                 await deleteDoc(watchlistRef);
 
-                alert("Success");
-                console.log("Successfully saved");
+                setWatchExists(true)
             } catch (error) {
                 console.error("An error occurred", error);
             }
@@ -82,50 +81,49 @@ function Moviecard({ title, desc, img, id }) {
 
     const handleRating = async () => {
         setRating(0.5);
-        await addRating();
+        await addRating(0.5);
     };
     const handleRating1 = async () => {
         setRating(1);
-        await addRating();
+        await addRating(1);
     };
     const handleRating2 = async () => {
         setRating(1.5);
-        await addRating();
+        await addRating(1.5);
     };
     const handleRating3 = async () => {
         setRating(2);
-        await addRating();
+        await addRating(2);
     };
     const handleRating4 = async () => {
         setRating(2.5);
-        await addRating();
+        await addRating(2.5);
     };
     const handleRating5 = async () => {
         setRating(3);
-        await addRating();
+        await addRating(3);
     };
     const handleRating6 = async () => {
         setRating(3.5);
-        await addRating();
+        await addRating(3.5);
     };
     const handleRating7 = async () => {
         setRating(4);
-        await addRating();
+        await addRating(4);
     };
     const handleRating8 = async () => {
         setRating(4.5);
-        await addRating();
+        await addRating(4.5);
     };
     const handleRating9 = async () => {
         setRating(5);
-        await addRating();
+        await addRating(5);
     };
-    const addRating = async (e) => {
-
+    const addRating = async (ratingValue) => {
         try {
             const movieRef = doc(db, "movierating", `${id}`);
             await setDoc(movieRef, {
-                rating: rating,
+                rating: ratingValue, // Use the ratingValue argument directly
                 title: title,
                 movieLink: `https://api.themoviedb.org/3/movie/${id}`,
                 timestamp: serverTimestamp(),
@@ -133,32 +131,25 @@ function Moviecard({ title, desc, img, id }) {
             });
             const watchlistRef = doc(db, "moviewatchlist", `${id}`);
             await deleteDoc(watchlistRef);
+        } catch (error) {
+            console.error("An error occurred", error);
+        }
+    };
 
-            alert("Success");
-            console.log("Successfully saved");
+    const addToWatchlist = async (e) => {
+        try {
+            const movieRef = doc(db, "moviewatchlist", `${id}`);
+            await setDoc(movieRef, {
+                title: title,
+                movieLink: `https://api.themoviedb.org/3/movie/${id}`,
+                timestamp: serverTimestamp(),
+                source: "web",
+            });
+            setWatchlistExists(true)
         } catch (error) {
             console.error("An error occurred", error);
         }
 
-    };
-    const addToWatchlist = async (e) => {
-        const confirmed = window.confirm("Save?");
-        if (confirmed) {
-            try {
-                const movieRef = doc(db, "moviewatchlist", `${id}`);
-                await setDoc(movieRef, {
-                    title: title,
-                    movieLink: `https://api.themoviedb.org/3/movie/${id}`,
-                    timestamp: serverTimestamp(),
-                    source: "web",
-                });
-
-                alert("Success");
-                console.log("Successfully saved");
-            } catch (error) {
-                console.error("An error occurred", error);
-            }
-        }
     };
     const addToFavorite = async (e) => {
         const confirmed = window.confirm("Save?");
@@ -171,9 +162,8 @@ function Moviecard({ title, desc, img, id }) {
                     timestamp: serverTimestamp(),
                     source: "web",
                 });
+                setFavExists(true);
 
-                alert("Success");
-                console.log("Successfully saved");
             } catch (error) {
                 console.error("An error occurred", error);
             }
@@ -196,7 +186,7 @@ function Moviecard({ title, desc, img, id }) {
         };
 
         fetchWatchlistExists();
-    }, []);
+    }, [id]); // Include id in t
     const [watchExists, setWatchExists] = useState(null);
 
     useEffect(() => {
@@ -208,12 +198,32 @@ function Moviecard({ title, desc, img, id }) {
                 setWatchExists(exists);
             } catch (error) {
                 console.error("Error checking document existence:", error);
-                setWatchExists(false); // Set to false if error occurs
+                setWatchExists(false);
+
             }
         };
 
         fetchWatchExists();
-    }, []);
+    }, [id]);
+
+    const [favExists, setFavExists] = useState(null);
+
+    useEffect(() => {
+        const fetchFavExists = async () => {
+            try {
+                const movieRef = doc(db, "moviefav", `${id}`);
+                const docSnapshot = await getDoc(movieRef);
+                const exists = docSnapshot.exists();
+                setFavExists(exists);
+            } catch (error) {
+                console.error("Error checking document existence:", error);
+                setFavExists(false);
+
+            }
+        };
+
+        fetchFavExists();
+    }, [id]);
 
 
     return (
@@ -242,7 +252,7 @@ function Moviecard({ title, desc, img, id }) {
                                     <p className="text-blue-500 line-clamp-4 text-xs">{desc}</p></div>
                                 <div className="flex gap-2 text-xs">
                                     <button onClick={buttonIsAdding} className="bg-blue-500 text-blue-950 font-semibold px-1">ADD</button>
-                                    <button className="bg-blue-500 text-blue-950 font-semibold px-1">DETAILS</button>
+                                    {children}
                                     <button onClick={buttonIsRating} className="bg-blue-500 text-blue-950 font-semibold px-1">RATE</button>
                                 </div>
                             </div>
@@ -270,7 +280,15 @@ function Moviecard({ title, desc, img, id }) {
                                 ) : watchExists ? (
                                     <>
                                         <button className='w-full text-green-600 border-y border-blue-500 text-center'>YOU&rsquo;VE WATCHED THIS</button>
-                                        <button onClick={addToFavorite} className='w-full hover:bg-blue-500 hover:text-blue-950 border-y border-blue-500 text-center'>ADD TO FAVORITE</button>
+
+                                        {favExists === null ? (
+                                            <div className='w-full text-red-600 border-y border-blue-500 text-center'>LOADING...</div>
+                                        ) : favExists ? (
+                                            <button className='w-full text-green-600 border-y border-blue-500 text-center'>ADDED TO FAVORITE</button>
+                                        ) : (
+                                            <button onClick={addToFavorite} className='w-full hover:bg-blue-500 hover:text-blue-950 border-y border-blue-500 text-center'>ADD TO FAVORITE</button>
+                                        )}
+
                                     </>
                                 ) : (
                                     <>
